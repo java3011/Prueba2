@@ -1,0 +1,60 @@
+<div>
+    <app-sidebar></app-sidebar>
+</div>
+<div class="container row">
+    <div class="container-fluid my-5 pb-3" id="wrap">
+            <h2 class="mt-4 text-center title">Algorithm Upload</h2>
+            <!-- <div class="container-fluid wrapper">
+                <h4>Drag & Drop file(s) here</h4>
+                <span>or</span>
+                <br>
+                <br>
+                <button type="button" class="btn btn-outline-primary">Browse Files</button>
+            </div> -->
+            <!-- <input class="form-control"  type="file" id="formFileMultiple" multiple> -->
+            
+            <form [formGroup]="AlgorithmForm" (ngSubmit)="sendDataAlgorithm()">
+                <div class="form-group mt-4">
+                    <label class="form-label" for="algorithmName">Algorithm Name</label>
+                    <input type="text" class="form-control"  formControlName="algorithmName" id="algorithmName">
+                    <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="AlgorithmForm.controls['algorithmName'].invalid && (AlgorithmForm.controls['algorithmName'].dirty) || (AlgorithmForm.controls['algorithmName'].touched)">
+                    <div *ngIf="AlgorithmForm.controls['algorithmName'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 200</span>
+                    </div>
+                </div>  
+            </div> 
+                <!--------------------- Fin validacion -------------------> 
+
+                <div class="form-group mt-4">
+                    <label class="form-label" for="algorithmFile">Algorithm URL</label>
+                    <input type="url" class="form-control" formControlName="algorithmFile" id="algorithmFile">
+                    <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="AlgorithmForm.controls['algorithmFile'].invalid && (AlgorithmForm.controls['algorithmFile'].dirty) || (AlgorithmForm.controls['algorithmFile'].touched)">
+                    <div *ngIf="AlgorithmForm.controls['algorithmFile'].hasError('required')">
+                         <span class="text-danger">*URL es obligatorio</span>
+                    </div>
+                    <div *ngIf="AlgorithmForm.controls['algorithmFile'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 200</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion -------------------> 
+                </div>
+                <div class="form-group mt-4">
+                    <label class="form-label" for="algorithmInfo">Algorithm Information</label>
+                    <textarea class="form-control"  rows="2" formControlName="algorithmInfo" id="algorithmInfo"></textarea>
+                    <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="AlgorithmForm.controls['algorithmInfo'].invalid && (AlgorithmForm.controls['algorithmInfo'].dirty) || (AlgorithmForm.controls['algorithmInfo'].touched)">
+                    <div *ngIf="AlgorithmForm.controls['algorithmInfo'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 200</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion -------------------> 
+                </div>
+                <div class="mt-4">
+                    <button class="btn btn-primary"  [disabled]="AlgorithmForm.invalid" type="submit"  >Save</button>
+                    <button class="btn btn-secondary ms-4"  type="reset">Clean</button>
+                </div>
+            </form>
+    </div>
+</div>

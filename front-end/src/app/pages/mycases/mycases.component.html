@@ -1,0 +1,21 @@
+<div>
+  <app-sidebar></app-sidebar>
+</div>
+
+<div class="container-fluid  m-0">
+    <table class="table align-middle ">
+        <thead>
+          <h4 class="text-center">My Cases</h4>
+        </thead>
+        <tbody>
+          <tr *ngFor="let case of listaCases">
+            <td> {{case.caseName}} </td>
+            <td> <button type="button" class="btn btn-primary">View</button></td>
+            <td><a class="btn btn-success" routerLink="/treatment" role="button">Add/Edit Treatment</a></td>
+            <td><button type="button" class="btn btn-outline-primary">Edit</button></td>
+            <td><button type="button" class="btn btn-dark btn-sm"><i class="fa-solid fa-file-pdf"></i></button></td>
+            <td><button type="button" class="btn btn-danger btn-sm " aria-label="Delete"> Delete  </button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

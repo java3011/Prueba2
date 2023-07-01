@@ -1,0 +1,60 @@
+<div class="container row g-2 px-2 ">
+    <div class="container-fluid" id="wrap">
+        <form [formGroup]="loginForm" (ngSubmit)="logIn()" novalidate>
+            <h2 class="py-3">LOG IN</h2>
+            <div class="mb-3">
+                <input class="form-control" formControlName="Email" type="email" placeholder="Email" >
+                <div *ngIf="loginForm.controls['Email'].invalid && (loginForm.controls['Email'].dirty) || (loginForm.controls['Email'].touched)">
+                    <div *ngIf="loginForm.controls['Email'].hasError('required')">
+                         <span class="text-danger">*Email es obligatorio</span>
+                    </div>
+                    <div *ngIf="loginForm.controls['Email'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 80</span>
+                    </div>
+                </div>  
+            </div>
+            <div class="mb-3">
+                <input class="form-control" formControlName="userPassword" type="password" placeholder="Password" >
+                <div *ngIf="loginForm.controls['userPassword'].invalid && (loginForm.controls['userPassword'].dirty) || (loginForm.controls['userPassword'].touched)">
+                    <div *ngIf="loginForm.controls['userPassword'].hasError('required')">
+                         <span class="text-danger">*Password es obligatorio</span>
+                    </div>
+                    <div *ngIf="loginForm.controls['userPassword'].hasError('minlength')">
+                        <span class="text-danger">*Password debe tener al menos 6 caracteres</span>
+                   </div>
+                    <div *ngIf="loginForm.controls['userPassword'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 20</span>
+                    </div>
+                </div>  
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+        <!--------------- Inicio Modal forgot password ---------------->
+        <div>
+            <p class="pt-4">Forgot Password?, Click <button type="button" class="btn btn-link p-0 pb-1" data-bs-toggle="modal" data-bs-target="#forgotPassModal">Here</button></p>
+            <div class="modal fade" id="forgotPassModal" tabindex="-1" aria-labelledby="forgotPassModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="forgotPassModalLabel">Recover Your Account</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body ">
+                            <label for="emailrecovery" >Enter your email for recover your password</label>
+                            <input type="email" class="form-control" name="emailrecovery" id="emailrecovery">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!------------- Termino Modal forgot password ------------>
+        <div class="mb-3">
+            <a routerLink="/signin">Create new Account</a>
+        </div>
+    </div>
+</div>
+

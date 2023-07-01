@@ -1,0 +1,15 @@
+input{
+    border-radius: 3px;
+}
+.container{
+    max-width:100%;
+    padding-top: 65px;
+    padding-bottom: 50px;
+}
+#wrap{
+    width: 360px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 8px;
+    background-color:whitesmoke;
+}

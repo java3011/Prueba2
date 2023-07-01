@@ -1,0 +1,70 @@
+<div class="container row g-2 px-2">
+    <div class="container-fluid" id="wrap">
+        <form  [formGroup]="signinForm"   (ngSubmit)="submit()" novalidate>
+            <h2 class="py-3">SIGN IN</h2>
+            <div class="form-group px-4 pb-2">
+                <input  class="form-control" formControlName="userName" type="text" placeholder="Full Name">
+                 <!-- Inicio validacion  -->
+                <div *ngIf="signinForm.controls['userName'].invalid && (signinForm.controls['userName'].dirty) || (signinForm.controls['userName'].touched)">
+                    <div *ngIf="signinForm.controls['userName'].hasError('required')">
+                         <span class="text-danger">*Username es obligatorio</span>
+                    </div>
+                    <div *ngIf="signinForm.controls['userName'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 20</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion ------------------->  
+            </div>
+            <br>
+            <div class="form-group px-4 pb-2">
+                <input class="form-control" formControlName="Email" type="email" placeholder="E-mail">
+                 <!-- Inicio validacion --------------->
+                 <div *ngIf="signinForm.controls['Email'].invalid && (signinForm.controls['Email'].dirty) || (signinForm.controls['Email'].touched)">
+                    <div *ngIf="signinForm.controls['Email'].hasError('required')">
+                         <span class="text-danger">*Email es obligatorio</span>
+                    </div>
+                    <div *ngIf="signinForm.controls['Email'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 80</span>
+                    </div>
+                </div>  
+                <!----------------- Fin validacion ---------------------> 
+            </div>
+            <br>
+            <div class="form-group px-4 pb-2">
+                <input  class="form-control" formControlName="userPassword" type="password" placeholder="Password">
+                 <!------------------ Inicio validacion ----------------------->
+                 <div *ngIf="signinForm.controls['userPassword'].invalid && (signinForm.controls['userPassword'].dirty) || (signinForm.controls['userPassword'].touched)">
+                    <div *ngIf="signinForm.controls['userPassword'].hasError('required')">
+                         <span class="text-danger">*Password es obligatorio</span>
+                    </div>
+                    <div *ngIf="signinForm.controls['userPassword'].hasError('minlength')">
+                        <span class="text-danger">*Password debe tener al menos 6 caracteres</span>
+                   </div>
+                    <div *ngIf="signinForm.controls['userPassword'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 20</span>
+                    </div>
+                </div>  
+                <!----------------- Fin validacion --------------------> 
+            </div>
+            <br>
+            <div class="form-group px-4 pb-2">
+                <input class="form-control" formControlName="Charge" type="text" placeholder="Charge">
+                 <!----------------- Inicio validacion ---------------->
+                 <div *ngIf="signinForm.controls['Charge'].invalid && (signinForm.controls['Charge'].dirty) || (signinForm.controls['Charge'].touched)">
+                    <div *ngIf="signinForm.controls['Charge'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 50</span>
+                    </div>
+                </div>  
+                <!---------------------- Fin validacion --------------------> 
+            </div>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit" >Create Account</button>
+            </div>
+            <br>
+            <p>If you have an account, <a routerLink="/login">Login</a></p>
+            <div>
+            </div>
+        </form>
+    </div>
+</div>

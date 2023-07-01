@@ -1,0 +1,133 @@
+<div>
+    <app-sidebar></app-sidebar>
+</div>
+<div class="container row">
+    <div class="container-fluid my-5 pb-3" id="wrap">
+        <h2 class="text-center">Case Data</h2>
+        <form [formGroup]="caseForm" (ngSubmit)="sendDataCase()" class="row g-2 px-2" novalidate>
+            <div class="form-group">
+                <label class="form-label" for="caseName">Case Name</label>
+                <input type="text" class="form-control"  formControlName="caseName" id="caseName">
+                
+                <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="caseForm.controls['caseName'].invalid && (caseForm.controls['caseName'].dirty) || (caseForm.controls['caseName'].touched)">
+                    <div *ngIf="caseForm.controls['caseName'].hasError('required')">
+                         <span class="text-danger">*Nombre del caso es obligatorio</span>
+                    </div>
+                    <div *ngIf="caseForm.controls['caseName'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 100</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion -------------------> 
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="cancerName">Type Of Cancer</label>
+                <input type="text" class="form-control"  formControlName="cancerName" id="cancerName">
+                <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="caseForm.controls['cancerName'].invalid && (caseForm.controls['cancerName'].dirty) || (caseForm.controls['cancerName'].touched)">
+                    <div *ngIf="caseForm.controls['cancerName'].hasError('required')">
+                         <span class="text-danger">*Tipo de cancer es obligatorio</span>
+                    </div>
+                    <div *ngIf="caseForm.controls['cancerName'].hasError('maxlength')">
+                         <span class="text-danger">*Maximo de caracteres es 60</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion -------------------> 
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="cancerDescription">Extra Information About Type of Cancer</label>
+                <textarea class="form-control"  rows="2" formControlName="cancerDescription" id="cancerDescription"></textarea>
+            </div>
+            <!------------------ INICIO Modal------------------->
+            <div class="form-group">
+                <button class="btn btn-primary"type="button" data-bs-toggle="modal" data-bs-target="#modalAddOrgan">Add Organ Affected</button>
+                <div class="modal fade" id="modalAddOrgan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Add Organ Affected</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body ">
+                          <form [formGroup]="organForm" >
+                            <div class="form-group">
+                                <label class="form-label" for="organName">Organ Affected</label>
+                                <input type="text" class="form-control" id="organName" formControlName="organName">
+                            </div>
+                            <div class="row col md-12">
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="organType">Organ Type</label>
+                                    <select class="form-select"  id="organType" formControlName="organType" aria-label="Combobox for organType">
+                                        <option selected></option>
+                                        <option value="OAR">OAR</option>
+                                        <option value="PTV">PTV</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row col md-12">
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="Volume">Volume</label>
+                                   <input type="number" class="form-control"  formControlName="Volume" id="Volume">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" for="numberOfVoxels">Number of Voxels</label>
+                                    <input type="number" class="form-control"  formControlName="numberOfVoxels" id="numberOfVoxels">
+                                </div>
+                            </div>
+                            <div class="row col-md-12 mt-2">
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="minPrescribedDose">Min Prescribed Dose</label>
+                                    <div class="form-group col-md-8">
+                                        <input type="number" class="form-control"  formControlName="minPrescribedDose" id="minPrescribedDose">
+                                        <span class="input-group-text">Gy</span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="maxPrescribedDose">Max Prescribed Dose</label>
+                                    <div class="form-group col-md-8">
+                                        <input type="number" class="form-control"  formControlName="maxPrescribedDose" id="maxPrescribedDose">
+                                        <span class="input-group-text">Gy</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="form-label" for="indexName">Index</label>
+                                <select class="form-select" id="indexName" formControlName="indexName" aria-label="Combobox for Indexes">
+                                    <option selected></option>
+                                    <option value="D95" >D95</option>
+                                    <option value="V95">V95</option>
+                                    <option value="Dmin">Dmin</option>
+                                    <option value="Dmean">Dmean</option>
+                                    <option value="Dmax">Dmax</option>
+                                  </select>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button  class="btn btn-primary" type="button" [disabled]="organForm.invalid" (click)="sendDataOrgan()" data-bs-dismiss="modal">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <!----------------------------- TERMINO Modal---------------------->
+            <div class="row align-items-center">
+                <div class="form-check pt-4 ps-5 col-md-4">
+                    <input class="form-check-input" type="checkbox" formControlName="Noncoplanar" id="noncoplanar" checked>
+                    <label class="form-check-label" for="noncoplanar">Noncoplanar</label>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label class="form-label" for="dataCase">Extra Information About Case</label>
+                <textarea type="text" class="form-control"  rows="1" formControlName="dataCase" id="datacase"></textarea>
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-primary" [disabled]="caseForm.invalid" type="submit" >Save</button>
+                <button class="btn btn-secondary ms-4"  type="reset">Clean</button>
+            </div>
+            
+        </form>
+    </div>
+</div>

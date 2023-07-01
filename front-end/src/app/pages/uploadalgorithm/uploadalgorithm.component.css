@@ -1,0 +1,8 @@
+#wrap{
+    width: 480px;
+    border-radius: 8px;
+    border: 2px solid;
+}
+.mt-4{
+    margin-bottom: 10px;
+}

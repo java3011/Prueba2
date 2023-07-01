@@ -1,0 +1,18 @@
+.side {
+    width: 220px;
+    position: absolute;
+    right: 0;
+    height: 660px;
+    background: rgba(241,241,225,255);
+    color: black;
+    text-align: center;
+    border-left: 1px solid black;
+}
+a{
+    color: black;
+    font-size: 17px;
+}
+li{
+    padding-bottom: 40px;
+}
+

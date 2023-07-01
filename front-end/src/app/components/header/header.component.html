@@ -1,0 +1,19 @@
+<nav class="navbar p-0 m-0 sticky-top position-sticky">
+    <div class="container-fluid p-0">
+         <div>
+            <a routerLink="/home">
+                  <img class="ms-2" src="../../../assets/img/logo.png" alt="logo">
+                   <span id="logo-text"> Scientific Repository</span>
+              </a>
+          </div>
+          <div class="navbar-nav" id="nav">
+           
+               
+            <!--<a class="me-2" *ngIf="verify" routerLink="/login" routerLinkActive="active">My Account</a>-->
+            <a class="me-2" *ngIf="isAut()" style="cursor: pointer;" (click)="onLogOut()" routerLinkActive="active">LogOut</a> 
+       
+      </div>
+    
+        
+      </div>
+</nav>

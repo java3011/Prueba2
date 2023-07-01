@@ -1,0 +1,72 @@
+<div>
+    <app-sidebar></app-sidebar>
+</div>
+<br>
+<div class="container">
+
+        <div>
+            <input aria-label="Search" type="search" placeholder="Search" class="form-control" (keyup)="loadCase()" [(ngModel)]="search">
+        </div>
+        <br>
+        <div class="row mt-5" id="destacado">
+            <div class="col-12" id="casi">
+                <div>
+                    <h2>Most vieweb cases</h2>
+                <ul>
+                    <li style="float: left;">
+                        <div id="caja" style="width: 18rem;">
+                            <h4>Case Name</h4>
+                            <p>Case abstract</p>
+                            <a class="btn" routerLink="/content" role="button">View More >></a>
+                        </div>
+                    </li>
+                    <li style="float: left;">
+                        <div id="caja" style="width: 18rem;">
+                            <h4>Case Name</h4>
+                            <p>Case abstract</p>
+                            <a class="btn" routerLink="/content" role="button">View More >></a>
+                        </div>
+                    </li>
+                    <li style="float: left;">
+                        <div id="caja" style="width: 18rem;">
+                            <h4>Case Name</h4>
+                            <p>Case abstract</p>
+                            <a class="btn" routerLink="/content" role="button">View More >></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+        </div>
+        <div class="row mt-5" id="destacado">
+            <div class="col-12" id="casi2">
+                <h2>Recently added cases</h2>
+                <ul>
+                    <li style="float: left;">
+                        <div id="cajas" style="width: 18rem;">
+                            <h4>Case Name</h4>
+                            <p>Case abstract</p>
+                            <a class="btn" routerLink="/content" role="button">View More >></a>
+                        </div>
+                    </li>
+                    <li style="float: left;">
+                        <div id="cajas" style="width: 18rem;">
+                            <h4>Case Name</h4>
+                            <p>Case abstract</p>
+                            <a class="btn" routerLink="/content" role="button">View More >></a>
+                        </div>
+                    </li>
+                    <li style="float: left;">
+                        <div id="cajas" style="width: 18rem;">
+                            <h4>Case Name</h4>
+                            <p>Case abstract</p>
+                            <a class="btn" routerLink="/content" role="button">View More >></a>
+                        </div>  
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
