@@ -1,20 +1,20 @@
 # Prueba2
 - Para realizar las pruebas del back-end se utilizo Insomnia. 
 
-#Lenguajes:
-  Back-End
-    - ExpressJs
-    - JavaScript
-    - NodeJs
+# Lenguajes:
+Back-End
+  - ExpressJs
+  - JavaScript
+  - NodeJs
   
-  Front-End
-    - AngularJs
-    - BootStrap
+Front-End
+  - AngularJs
+  - BootStrap
 
-  Base de datos
-    - MySQL
+Base de datos
+  - MySQL
 
-#Arrancar programa:
+# Arrancar programa:
 Back:
   - Se deben instalar los paquetes correspondientes con el comando -> npm install
   - Luego en consola para arrancar el servicio se debe usar el comando -> npm run serve
